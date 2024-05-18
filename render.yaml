@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: worker
     name: pdf_downloader
     env: node
     buildCommand: npm install
