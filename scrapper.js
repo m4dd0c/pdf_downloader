@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-const defaultTimeout = 60000;
+const defaultTimeout = 600000; //10 min
 
 export const get_pdf = async (pdf_page) => {
   try {
