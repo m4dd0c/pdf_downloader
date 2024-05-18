@@ -66,4 +66,8 @@ bot.on("callback_query", async (cb_query) => {
     console.error("Error sending document callback_query_err", error.message);
   }
 });
-console.log("bot is running...");
+const port = process.env.PORT || 3000;
+// Start the bot server
+bot.listen({ port: port }, () => {
+  console.log(`Bot is running on port ${port}`);
+});

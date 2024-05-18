@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
-
 const defaultTimeout = 60000;
+
 export const get_pdf = async (pdf_page) => {
   try {
     const browser = await puppeteer.launch({
