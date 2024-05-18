@@ -1,7 +1,10 @@
 import TgBot from "node-telegram-bot-api";
+import express from "express";
 import dotenv from "dotenv";
 import { get_pdf, search_pdf } from "./scrapper.js";
 dotenv.config();
+const app = express();
+app.use(express.json());
 const bot = new TgBot(process.env.TOKEN, { polling: true });
 
 let array = [];
@@ -67,7 +70,6 @@ bot.on("callback_query", async (cb_query) => {
   }
 });
 const port = process.env.PORT || 3000;
+app.get("/", (req, res) => res.send("server is working..."));
 // Start the bot server
-bot.listen({ port: port }, () => {
-  console.log(`Bot is running on port ${port}`);
-});
+app.listen(port, () => console.log("listening on port", port));
